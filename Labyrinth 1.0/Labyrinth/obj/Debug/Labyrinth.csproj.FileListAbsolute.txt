@@ -128,3 +128,14 @@ D:\OK\КузГТУ\2 курс\ООП\Labyrinth-06.05.17\Labyrinth\Labyrinth\obj\
 D:\OK\КузГТУ\2 курс\ООП\Labyrinth-06.05.17\Labyrinth\Labyrinth\obj\Debug\Labyrinth.Form1.resources
 D:\OK\КузГТУ\2 курс\ООП\Labyrinth-06.05.17\Labyrinth\Labyrinth\obj\Debug\Labyrinth.Properties.Resources.resources
 D:\OK\КузГТУ\2 курс\ООП\Labyrinth-06.05.17\Labyrinth\Labyrinth\obj\Debug\Labyrinth.csproj.GenerateResource.Cache
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\bin\Debug\Labyrinth.exe.config
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\obj\Debug\Labyrinth.exe
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\obj\Debug\Labyrinth.pdb
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\bin\Debug\Labyrinth.exe
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\bin\Debug\Labyrinth.pdb
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\bin\Debug\Labyrinth.classes.dll
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\bin\Debug\Labyrinth.classes.pdb
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\obj\Debug\Labyrinth.csprojResolveAssemblyReference.cache
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\obj\Debug\Labyrinth.Form1.resources
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\obj\Debug\Labyrinth.Properties.Resources.resources
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth\obj\Debug\Labyrinth.csproj.GenerateResource.Cache

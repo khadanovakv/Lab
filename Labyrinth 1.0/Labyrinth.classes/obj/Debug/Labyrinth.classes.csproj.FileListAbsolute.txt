@@ -53,3 +53,8 @@ D:\OK\КузГТУ\2 курс\ООП\Labyrinth-06.05.17\Labyrinth\Labyrinth.clas
 D:\OK\КузГТУ\2 курс\ООП\Labyrinth-06.05.17\Labyrinth\Labyrinth.classes\obj\Debug\Labyrinth.classes.dll
 D:\OK\КузГТУ\2 курс\ООП\Labyrinth-06.05.17\Labyrinth\Labyrinth.classes\obj\Debug\Labyrinth.classes.pdb
 D:\OK\КузГТУ\2 курс\ООП\Labyrinth-06.05.17\Labyrinth\Labyrinth.classes\obj\Debug\Labyrinth.classes.csprojResolveAssemblyReference.cache
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth.classes\bin\Debug\Labyrinth.classes.dll
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth.classes\bin\Debug\Labyrinth.classes.pdb
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth.classes\obj\Debug\Labyrinth.classes.csprojResolveAssemblyReference.cache
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth.classes\obj\Debug\Labyrinth.classes.dll
+D:\OK\КузГТУ\2 курс\ООП\Лабиринт\Labyrinth 1.1\Labyrinth.classes\obj\Debug\Labyrinth.classes.pdb

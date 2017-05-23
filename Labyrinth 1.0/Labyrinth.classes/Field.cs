@@ -52,7 +52,7 @@ namespace Labyrinth.classes
         {
             if (X >= Height) throw new Exception(string.Format("высота {0} больше, чем {1}", X, Height));
             if (Y >= Width) throw new Exception(string.Format("ширина {0} больше, чем {1}", Y, Width));
-            int ii = X * Width + Y;
+            int ii = X * (Width + 1) + Y;
             return ii;
             throw new Exception(string.Format("ячейка в позиции {0},{1} не найдена",X, Y));            
         }
@@ -62,7 +62,9 @@ namespace Labyrinth.classes
             Random rand = new Random();
             for (int i = 1; i <= (Width * Height /2); i++)
             {
-                int ran = rand.Next(0,CellList.Count-1); //случайное число - номер ячейки
+                int ran = rand.Next(0, CellList.Count - Width - 3); //случайное число - номер ячейки
+                if (CellList[ran].ycoord == Width)
+                    ran = ran - 1;
                 CellList[ran].tborder = true;
                 if (CellList[ran].xcoord >= 1)
                 {
@@ -70,13 +72,15 @@ namespace Labyrinth.classes
                     pXMinus1.bborder = true; //создание парной границы
                 }
                 
-                ran = rand.Next(0,CellList.Count-1); //случайное число - номер ячейки
+                ran = rand.Next(0, CellList.Count - Width - 3); //случайное число - номер ячейки
+                if (CellList[ran].ycoord == Width)
+                    ran = ran - 1;
                 CellList[ran].lborder = true;
                 if (CellList[ran].ycoord >= 1)
                 {
                     CCell pYMinus1 = Get(CellList[ran].xcoord, CellList[ran].ycoord - 1); //соседняя ячейка слева
                     pYMinus1.rborder = true; //создание парной границы
-                }                
+                }
             }
         }
         public void bholes() //создание "черных дыр"
@@ -84,12 +88,16 @@ namespace Labyrinth.classes
             Random rand = new Random();
             for (int i = 1; i <= 5; i++)
             {
-                int ran = rand.Next(1, CellList.Count - 2); //случайное число - номер ячейки
+                int ran = rand.Next(1, CellList.Count - Width - 4); //случайное число - номер ячейки
+                if (CellList[ran].ycoord == Width)
+                    ran = ran - 1;
                 int rantype = rand.Next(3, 7);
                 if (rantype == 3)
                 {
                     CellList[ran].type = EType.Portal;
-                    int ran2 = rand.Next(1, CellList.Count - 2);
+                    int ran2 = rand.Next(1, CellList.Count - Width - 4);
+                    if (CellList[ran2].ycoord == Width)
+                        ran2 = ran2 - 1;
                     CellList[ran2].type = EType.Portal;
                 }
                 if (rantype == 4)
@@ -114,20 +122,21 @@ namespace Labyrinth.classes
             {
                 List<string> ListBorders = new List<string>(); //список границ одной ячейки
                 if (CellList[j].lborder)
-                    ListBorders.Add(@"left.png");
-                if (CellList[j].rborder)
-                    ListBorders.Add(@"right.png");
+                    ListBorders.Add(@"left3.png");
                 if (CellList[j].tborder)
-                    ListBorders.Add(@"top.png");
-                if (CellList[j].bborder)
-                    ListBorders.Add(@"bottom.png");
+                    ListBorders.Add(@"top3.png");
                 if (CellList[j].type == EType.Exit)
                     ListBorders.Add(@"exit.png");
+                int x = CellList[j].xcoord;
+                int y = CellList[j].ycoord;
+                if ((x > 0) & (y > 0))
+                    if ((Get(x-1, y-1).rborder) & (Get(x-1, y-1).bborder))
+                        ListBorders.Add(@"lt.png");
                 ListBorders.Add(@"empty.png");
                 Bitmap cell = CombineBitmap(ListBorders); //картинка одной ячейки со всеми ее границами
                 cells.Add(cell);
             }
-            Img = new Bitmap(Width*40, Height*40);
+            Img = new Bitmap((Width+1)*40, (Height+1)*40);
             using (Graphics g = Graphics.FromImage(Img))
             {
                 g.Clear(Color.Transparent);
@@ -142,13 +151,13 @@ namespace Labyrinth.classes
         public void DrawingBlackHoles()
         {
             List<Bitmap> holes = new List<Bitmap>(); //список
-            for (int j = 0; j <= CellList.Count - 1; j++)
+            for (int j = 0; j <= CellList.Count - Width - 4; j++)
             {
                 Bitmap hole = new Bitmap(40, 40);
                 switch (CellList[j].type)
                 {
                     case EType.Portal:
-                        hole = new Bitmap(Image.FromFile(@"blackhole.png"), 40, 40);
+                        hole = new Bitmap(Image.FromFile(@"blackhole1.png"), 40, 40);
                         break;
                     case EType.BlackHole:
                         hole = new Bitmap(Image.FromFile(@"blackhole2.png"), 40, 40);
@@ -165,11 +174,11 @@ namespace Labyrinth.classes
                 }
                 holes.Add(hole);
             }
-            BlackHoles = new Bitmap(Width * 40, Height * 40); //картинка с черными дырами
+            BlackHoles = new Bitmap((Width+1) * 40, (Height+1) * 40); //картинка с черными дырами
             using (Graphics g = Graphics.FromImage(BlackHoles))
             {
                 g.Clear(Color.Transparent);
-                for (int i = 0; i <= CellList.Count - 1; i++)
+                for (int i = 0; i <= CellList.Count - Width - 4; i++)
                 {
                     g.DrawImage(holes[i], (CellList[i].ycoord) * 40, (CellList[i].xcoord) * 40);
                 }
@@ -209,9 +218,9 @@ namespace Labyrinth.classes
         public void newfield()
         {
             CellList.Clear();
-            for (int i = 0; i <= Height-1; i++)
+            for (int i = 0; i <= Height; i++)
             {
-                for (int j = 0; j <= Width-1; j++)
+                for (int j = 0; j <= Width; j++)
                 {
                     CCell Cell = new CCell()
                     {
@@ -224,11 +233,11 @@ namespace Labyrinth.classes
                         type = EType.Ordinary
                     };
                     //создание внешних границ
-                    if (i == 0)
+                    if ((i == 0) || (i == Height))
                     {
                         Cell.tborder = true;
                     }
-                    if (j == 0)
+                    if ((j == 0) || (j == Width))
                     {
                         Cell.lborder = true;
                     }
@@ -244,7 +253,7 @@ namespace Labyrinth.classes
                 }
             }
             CellList[0].type = EType.Entry;
-            CellList[CellList.Count-1].type = EType.Exit;
+            CellList[CellList.Count-Width-3].type = EType.Exit;
             borders(); //создание случайных границ
             bholes(); //создание "черных дыр"
             DrawingField(); //рисование поля

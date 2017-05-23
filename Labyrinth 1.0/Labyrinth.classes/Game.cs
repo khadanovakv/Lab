@@ -62,6 +62,23 @@ namespace Labyrinth.classes
             Cursor.coordy = 0;
             DrawingCursor();            
         }
+        public void port()
+        {
+            bool t = false;
+            while (t == false)
+            {
+                Random rnd = new Random();
+                int r = rnd.Next(0, (Field.CellList.Count - Field.Width - 3));
+                if (Field.CellList[r].type == EType.Portal)
+                {
+                    Cursor.coordx = Field.CellList[r].ycoord;
+                    Cursor.coordy = Field.CellList[r].xcoord;
+                    t = true;
+                }
+                
+            }
+            DrawingCursor();
+        }
         public void bh()
         {
             Random rnd = new Random();

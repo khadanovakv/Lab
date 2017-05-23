@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Labyrinth
@@ -30,6 +31,7 @@ namespace Labyrinth
         }
         private void DrawingBox()
         {
+            //Thread.Sleep(1000);
             pictureBox1.Controls.Clear();
             PictureBox pictureBox2 = new PictureBox
             {
@@ -58,14 +60,25 @@ namespace Labyrinth
             label1.Text = (string.Format("X: {0}, Y: {1}",Game.Cursor.coordx, Game.Cursor.coordy));
             switch (Game.Field.Get(Game.Cursor.coordy, Game.Cursor.coordx).type)
             {
+                case EType.Portal:
+                    Game.port();
+                    DrawingBox();
+                    break;
                 case EType.BlackHole:
+                    //Thread.Sleep(1000);
                     Game.bh();
+                    DrawingBox();
                     break;
                 case EType.Fin:
                     Game.fin();
+                    DrawingBox();
+                    //Thread.Sleep(1000);
+                    nextcell();
                     break;
                 case EType.Strt:
                     Game.strt();
+                    //Thread.Sleep(1000);
+                    DrawingBox();
                     break;
                 case EType.Exit:
                     win();
@@ -129,6 +142,7 @@ namespace Labyrinth
                     case Keys.Right:
                         {
                             Game.right();
+                            //label1.Text = (string.Format("X: {0}, Y: {1}", Game.Cursor.coordx, Game.Cursor.coordy));
                             DrawingBox();
                             nextcell();
                         }
